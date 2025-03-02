@@ -22,7 +22,7 @@ Lockey is a web-based password manager application that helps users securely sto
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/lockey.git
+   git clone https://github.com/pritishps/lockey.git
    cd lockey
    ```
 2. Move the project to the XAMPP htdocs directory:
