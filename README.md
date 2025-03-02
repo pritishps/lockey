@@ -1,36 +1,5 @@
 # Lockey - Password Manager
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-  }
-  h1, h2, h3 {
-    color: #0056b3;
-  }
-  code {
-    background: #eee;
-    padding: 2px 5px;
-    border-radius: 4px;
-  }
-  pre {
-    background: #272822;
-    color: #f8f8f2;
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-  }
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
-
 Lockey is a web-based password manager application that helps users securely store, manage, and generate strong passwords. It allows users to save their credentials, including usernames, passwords, and associated URLs, in an encrypted format.
 
 ## Features
