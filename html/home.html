@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LOCKEY</title>
+        <link rel="stylesheet" href="./../css/properties.css">
+        <link rel="stylesheet" href="./../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../css/home.css">
+        <link rel="stylesheet" href="./../css/addpassword.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+            rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon"
+            href="./../images/lockey-logo-square.png" />
+    </head>
+    <body class="back-primary-white " id="body">
+        <!-- NAV BAR -->
+        <nav class="d-none d-lg-flex full-navbar">
+            <img src="./../images/Lockey-logo-name.png"
+                class="nav-logo-image-full-desktop" alt="lockey logo">
+
+            <!-- SEARCH BAR DESKTOP-->
+            <div class="search-container w-75">
+                <div class="row g-0">
+                    <div class="col-1 col-md-2"></div>
+                    <div
+                        class="col-10 col-md-8 d-flex back-prime-secondary align-items-center border rounded">
+                        <i
+                            class="bi bi-search txt-prime fw-bolder fs-3 p-1 ps-2"></i>
+                        <input type="text" class="search-input border-0"
+                            placeholder="Seach" id="search-input">
+                    </div>
+
+                </div>
+            </div>
+            <!-- SEARCH BAR END -->
+            <div class="nav-links-container-desktop">
+                <a href="./../php/logout.php"
+                    class="nav-links-desktop txt-primary-dark">Logout</a>
+            </div>
+        </nav>
+        <!-- Mobile nav bar -->
+        <div class="d-block d-lg-none ">
+            <nav class="full-navbar" id="top-nav-bar-mobile">
+                <img
+                    src="./../images/Lockey-logo-name.png"
+                    class="nav-logo-image-full-mobile" alt="lockey logo">
+
+                <div class="nav-icon-holder-mobile" id="mobile-nav-icon-holder">
+                    <div class="top-bottom-div back-prime"></div>
+                    <div class="middle-div back-prime"></div>
+                    <div class="top-bottom-div back-prime"></div>
+                </div>
+            </nav>
+            <div class="nav-links-container-mobile back-primary-white"
+                id="nav-bar-contents-mobile">
+                <a href="./../php/logout.php"
+                    class="nav-links-mobile txt-primary-dark">Logout</a>
+
+            </div>
+        </div>
+        <!-- NAV BAR END -->
+        <!-- MOBILE SEARCH BAR -->
+        <div class="m-5"></div>
+        <div class="d-block d-lg-none search-container-desktop">
+            <div class="row g-0 p-2">
+                <div
+                    class="col-12 d-flex back-prime-secondary align-items-center border rounded">
+                    <i
+                        class="bi bi-search txt-prime fw-bolder fs-3 p-1 ps-2"></i>
+                    <input type="text" class="search-input border-0"
+                        placeholder="Seach" id="search-input-mobile">
+                </div>
+            </div>
+        </div>
+        <!-- TOP SCROLL BAR START -->
+        <div class="top-scroll-container nav-below-object d-flex justify-content-evenly" id="featureList"> 
+            <p id="all-passwords" class="txt-secondary-dark scrollable-content">All</p>
+            <p id="favourite-passwords" class="txt-secondary-dark scrollable-content">Favourites</p>
+        </div>
+        <div class="" id="body-container">
+            <!-- PASSWORD CONTAINER -->
+            <div id="passwords-display"></div>
+
+            <!-- SHOW DEATILS -->
+            <!-- Modal structure -->
+            <div id="detail-modal" class="modal">
+                <div class="modal-content p-4">
+                    <i class="bi bi-x-lg close txt-prime"></i>
+                    <div class="d-flex gap-2 align-items-center">
+                        <i class="bi bi-file-lock2-fill display-1 txt-prime"></i>
+                        <h4 id="appname"></h4>
+                    </div>
+                    <div class="mt-4">
+                        <p id="launch"><i class="bi bi-rocket-takeoff-fill txt-prime pe-2"></i>Launch</p>
+                        <p class="" id="view"><i class="bi bi-arrows-angle-expand txt-prime pe-2"></i>View</p>
+                        <p id="edit-user-details-btn"><i class="bi bi-pencil-fill txt-prime pe-2"></i>Edit</p>
+                        <p ><i class="bi bi-copy txt-prime pe-2" id="copypassword"></i>Copy password</p>
+                        <p ><i class="bi bi-copy txt-prime pe-2" id="copyusername"></i>Copy username</p>
+                        <p ><i class="bi bi-copy txt-prime pe-2" id="copyurl"></i>Copy URL</p>
+                        <p class="txt-prime" id="delete-user-details-btn"><i class="bi bi-trash3-fill txt-prime pe-2"></i>Delete</p>    
+                    </div>
+                </div>
+            </div>
+            <!-- Delete view -->
+            <div id="delete-modal" class="modal">
+                <div class="modal-content p-4">
+                    <div class="d-flex gap-2 align-items-center mb-2">
+                        <i class="bi bi-trash3-fill txt-prime display-1 txt-prime"></i>
+                        <h4>Delete Item</h4>
+                    </div>
+                    <p>
+                        Delete this item? It will be gone forever.
+                    </p>
+                    <div class="d-flex justify-content-end gap-3">
+                        <a class="text-decoration-none txt-primary-dark" id="cancel-btn">Cancel</a>
+                        <a class="text-decoration-none txt-prime" id="delete-btn">Delete</a>
+                    </div>
+                </div>
+            </div>
+  
+
+            <!-- DISPLAY FORM -->
+            <div class="row g-0 d-none form-top" id="display-password">
+                <form action="./../php/updatepassword.php" method="post" id="display-password-form"
+                    class="col-lg-7 mx-auto">
+                    
+                    <div class="form-container m-md-4 p-4">
+                        
+                        <i class="bi bi-x-lg cross txt-prime" id="display-close"></i>
+                        <div class="col-lg-11 row mx-auto">
+                            <p class=" form-heading-accout-create">Your Password...</p>
+                            <!-- Name Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">App Name</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="display-app-name" id="display-app-name" disabled>
+                            </div>
+                            <!-- URL Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">URL</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="display-url" id="display-url" disabled>
+                            </div>
+                            <!-- USERNAME Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="username">Username</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-username" id="display-username" disabled>
+                            </div>
+                            <!-- Password part -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="password">Password</label>
+                                <div style="position: relative;">
+                                    <input
+                                        class="registeration-input txt-secondary-dark back-primary-white"
+                                        type="password" name="updated-password"
+                                        id="display-password-field"
+                                        style="padding-right: 2rem;" disabled>
+                                    <i class="bi bi-eye-slash txt-prime fs-5"
+                                        id="display-toggle-password"
+                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                                </div>
+                            </div>
+                            <!-- Name Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">Note</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-note" id="display-note" disabled>
+                            </div>
+                            <!-- Favourite -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname"><input class="form-check-input me-3"
+                                    type="checkbox" name="updated-favourite"
+                                    id="display-favourite" disabled> Favourite
+                                    </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- UPDATE FORM -->
+            <div class="row g-0 d-none form-top"  id="update-password">
+                <form action="./../php/updatepassword.php" method="post" id="update-password-form"
+                    class="col-lg-7 mx-auto">
+                    <div class="form-container m-md-4 p-4">
+                        <i class="bi bi-x-lg cross txt-prime" id="update-close"></i>
+
+                        <div class="col-lg-11 row mx-auto">
+                            <p class=" form-heading-accout-create">Update
+                                password...</p>
+                            <!-- Name Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">App Name</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-app-name" id="updated-app-name">
+                                <p class="error-label" id="updated-app-name-error"></p>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-id" id="updated-id" hidden>
+                            </div>
+                            <!-- URL Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">URL</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-url" id="updated-url">
+                                <p class="error-label" id="updated-url-error"></p>
+                            </div>
+                            <!-- USERNAME Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="username">Username</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-username" id="updated-username">
+                            </div>
+                            <p class="error-label" id="updated-username-error"></p>
+                            <!-- Password part -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="password">Password</label>
+                                <div style="position: relative;">
+                                    <input
+                                        class="registeration-input txt-secondary-dark back-primary-white"
+                                        type="password" name="updated-password"
+                                        id="updated-password"
+                                        style="padding-right: 2rem;">
+                                    <i class="bi bi-eye-slash txt-prime fs-5"
+                                        id="updated-toggle-password"
+                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                                </div>
+                                <p class="error-label" id="updated-password-error"></p>
+                            </div>
+                            <!-- Name Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">Note</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="updated-note" id="updated-note">
+                                <p class="error-label" id="updated-note-error"></p>
+                            </div>
+                            <!-- Favourite -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname"><input class="form-check-input me-3"
+                                    type="checkbox" name="updated-favourite"
+                                    id="updated-favourite"> Favourite
+                                    </label>
+
+                                <p class="error-label" id="updated-note-error"></p>
+                            </div>
+
+                            <input type="password" name="updated-encrypted_password"
+                                id="updated-encrypted_password" hidden>
+                            <input
+                                class="register-btn btn back-prime p-3 fs-5 txt-primary-white fw-bold border rounded-pill mb-3"
+                                type="submit" name="updated-register"
+                                value="Uppdate ->">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- FORM START -->
+            <div class="row g-0 d-none form-top" id="add-passwords">
+                <form action method="post" id="password-form"
+                    class="col-lg-7 mx-auto">
+                    <div class="form-container m-md-4 p-4">
+                        <i class="bi bi-x-lg cross txt-prime" id="add-close"></i>
+                        <div class="col-lg-11 row mx-auto">
+                            <p class=" form-heading-accout-create">Add a new
+                                password...</p>
+                            <!-- Name Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">App Name</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="app-name" id="app-name">
+                                <p class="error-label" id="app-name-error"></p>
+                            </div>
+                            <!-- URL Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">URL</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="url" id="url">
+                                <p class="error-label" id="url-error"></p>
+                            </div>
+                            <!-- USERNAME Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="username">Username</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="username" id="username">
+                            </div>
+                            <p class="error-label" id="username-error"></p>
+                            <!-- Password part -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="password">Password</label>
+                                <div style="position: relative;">
+                                    <input
+                                        class="registeration-input txt-secondary-dark back-primary-white"
+                                        type="password" name="password"
+                                        id="password"
+                                        style="padding-right: 2rem;">
+                                    <i class="bi bi-eye-slash txt-prime fs-5"
+                                        id="toggle-password"
+                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                                </div>
+                                <p class="error-label" id="password-error"></p>
+                            </div>
+                            <!-- Name Input -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname">Note</label>
+                                <input
+                                    class="registeration-input txt-secondary-dark back-primary-white"
+                                    type="text" name="note" id="note">
+                                <p class="error-label" id="note-error"></p>
+                            </div>
+                            <!-- Favourite -->
+                            <div class="col-md-12">
+                                <label
+                                    class="registeration-label txt-secondary-dark"
+                                    for="fname"><input class="form-check-input me-3"
+                                    type="checkbox" name="favourite"
+                                    id="favourite"> Favourite
+                                    </label>
+
+                                <p class="error-label" id="note-error"></p>
+                            </div>
+
+                            <input type="password" name="encrypted_password"
+                                id="encrypted_password" hidden>
+                            <input
+                                class="register-btn btn back-prime p-3 fs-5 txt-primary-white fw-bold border rounded-pill mb-3"
+                                type="submit" name="register"
+                                value="Add ->">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <!-- FORM END -->
+        <!-- new button -->
+        <button class="add-btn back-prime txt-primary-white"
+            id="add-password-btn"><i class="bi bi-plus-lg"></i> New</button>
+
+
+        <script src="../js/cryptoJs/crypto-js.min.js"></script>
+        <script src="../js/encryption.js"></script>
+        <script src="./../jQuery/jquery-3.7.1.min.js"></script>
+        <script src="../js/hamburger.js"></script>
+        <script src="../js/home.js"></script>
+        <script src="../js/fetchall.js"></script>
+        <script src="../js/addpassword.js"></script>
+        <script src="../js/update-password.js"></script>
+        <script src="../js/displayPassword.js"></script>
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

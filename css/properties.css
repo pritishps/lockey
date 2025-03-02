@@ -1,0 +1,128 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;  
+    font-family: "Instrument Sans",sans-serif;
+}
+
+.txt-prime{
+    color:#FF4522 !important;
+}
+.txt-prime-light{
+    color:#fad6cf !important;
+}
+.txt-primary-dark{
+    color:#1E1E1E !important;
+}
+.txt-secondary-dark{
+    color:#373636 !important;
+}
+.txt-primary-white{
+    color:#ECF3FD !important;
+}
+.back-prime{
+    background-color: #FF4522 !important;
+}
+.back-prime-secondary{
+    background-color: #fad6cf !important;
+}
+.back-primary-dark{
+    background-color: #1E1E1E !important;
+}
+.back-primary-white{
+    background-color: #e7e9ec !important;
+}
+.back-secondary-dark{
+    color:#373636 !important;
+}
+
+
+.full-navbar{
+    background-color: #e7e9ec;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+   /* border: 5px solid black; */
+    display: flex;
+    padding: 20px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo-image-full-desktop{
+    width:260px;
+}
+
+
+.nav-links-container-desktop{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links-desktop{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight:bold;
+    padding: 5px 18px;
+    border-radius: 20px;
+}
+.nav-links-desktop:hover{
+    background-color: #fad6cf;
+}
+
+
+
+.nav-logo-image-full-mobile{
+    width:160px;
+}
+.nav-icon-holder-mobile{
+    width: 10%;
+    height: 35px;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: end;
+}
+
+.top-bottom-div{
+    width: 40px;
+    height: 7px;
+    border-radius: 5px 0 0 5px;
+}
+.middle-div{
+    width: 30px;
+    height: 7px;
+    border-radius: 5px 0 0 5px;
+}
+
+
+
+.nav-links-container-mobile{
+    position: fixed;
+    width: 100%;
+    top:75px;
+    left: 0;
+    z-index: 10000;
+    display: none;
+    gap: 30px;
+    width: 100%;
+    /* position: absolute; */
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+.nav-links-mobile{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight:bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.nav-links-mobile:hover{
+    background-color: #fad6cf;
+}

@@ -1,0 +1,37 @@
+Navigation Bar Templet:
+<nav class="d-none d-md-flex full-navbar">
+            <img src="./../images/Lockey-logo-name.png"
+                class="nav-logo-image-full-desktop" alt="lockey logo">
+
+            <div class="nav-links-container-desktop">
+                <a href="#" class="nav-links-desktop txt-primary-dark">About
+                    Us</a>
+                <a href="#" class="nav-links-desktop txt-primary-dark">Contact
+                    Us</a>
+                <a href="#" class="nav-links-desktop txt-primary-dark">Login</a>
+            </div>
+        </nav>
+        <!-- Mobile nav bar -->
+        <div class="d-block d-md-none">
+            <nav class="full-navbar" id="top-nav-bar-mobile">
+                <img
+                    src="./../images/Lockey-logo-name.png"
+                    class="nav-logo-image-full-mobile" alt="lockey logo">
+
+                <div class="nav-icon-holder-mobile" id="mobile-nav-icon-holder">
+                    <div class="top-bottom-div back-prime"></div>
+                    <div class="middle-div back-prime"></div>
+                    <div class="top-bottom-div back-prime"></div>
+                </div>
+            </nav>
+            <div class="nav-links-container-mobile back-primary-white"
+                id="nav-bar-contents-mobile">
+                <a href="#" class="nav-links-mobile txt-primary-dark">About
+                    Us</a>
+                <a href="#" class="nav-links-mobile txt-primary-dark">Contact
+                    Us</a>
+                <a href="#" class="nav-links-mobile txt-primary-dark">Login</a>
+            </div>
+        </div>
+
+
